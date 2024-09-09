@@ -1,19 +1,32 @@
-// import './assets/main.css'
-// import '@/assets/style.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
 
-import PrimeVue from 'primevue/config'
-import Aura from '@primevue/themes/aura'
-// import DataTable from 'primevue/datatable'
-// import Column from 'primevue/Column'
+// PrimeVue imports
+import PrimeVue from 'primevue/config';
 
-const app = createApp(App)
-app.use(PrimeVue, { theme: { preset: Aura } })
+// Firebase imports
+import { getAnalytics } from 'firebase/analytics';
+import { initializeApp } from 'firebase/app';
 
-// app.component('DataTable', DataTable)
-// app.component('Column', Column)
+// Firebase configuration and initialization
+const firebaseConfig = {
+  apiKey: "AIzaSyCBOzN_uSvo6S5Gg54wzagsu3D5xej05rQ",
+  authDomain: "week7-yalin.firebaseapp.com",
+  projectId: "week7-yalin",
+  storageBucket: "week7-yalin.appspot.com",
+  messagingSenderId: "293371232535",
+  appId: "1:293371232535:web:9206b69b2c3537dda4b752",
+  measurementId: "G-50BD99LF7D"
+};
 
-app.mount('#app')
+const firebaseApp = initializeApp(firebaseConfig);
+const analytics = getAnalytics(firebaseApp);
+
+// Create Vue app
+const vueApp = createApp(App);
+vueApp.use(PrimeVue);
+vueApp.use(router);
+vueApp.mount('#app');
