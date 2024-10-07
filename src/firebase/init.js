@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Firebase imports
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from "firebase/firestore";
@@ -13,6 +14,6 @@ const firebaseConfig = {
   measurementId: "G-50BD99LF7D"
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const db = getFirestore()
 export default db
