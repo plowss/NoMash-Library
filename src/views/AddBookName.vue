@@ -12,7 +12,7 @@
   </template>
   
   <script>
-  import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 import { ref } from 'vue';
 import db from '../firebase/init.js';
   
