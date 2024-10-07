@@ -1,9 +1,9 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue';
 
 // Activity 1: Import JSON files (authors.json and bookstores.json)
-import authors from '@/assets/json/authors.json'
-import bookstores from '@/assets/json/bookstores.json'
+import authors from '@/assets/json/authors.json';
+import bookstores from '@/assets/json/bookstores.json';
 
 const showMessage = ref(false)
 
@@ -66,9 +66,6 @@ const topSellers = computed(() => {
 })
 
 // <!-- Activity 13: Toggle the message visibility when the button is clicked. -->
-const toggleMessage = () => {
-  showMessage.value = !showMessage.value
-}
 </script>
 
 <!-- JSONLab.vue -->

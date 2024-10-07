@@ -1,24 +1,29 @@
-<script setup>
-import BHeader from './components/BHeader.vue';
-</script>
-
 <template>
-  <header>
-    <BHeader />
-  </header>
-  <main class="container">
-    <router-view />
-  </main>
+  <div class="main-container">
+    <header v-if="showHeader">
+      <BHeader />
+    </header>
+    <main class="main-box">
+      <router-view></router-view>
+    </main>
+  </div>
 </template>
 
-<style>
+<script>
+import BHeader from './components/BHeader.vue';
+import CountBookAPI from './views/CountBookAPI.vue';
 
-.container {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 80vw;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-</style>
+export default {
+  name: 'App',
+  components: {
+    BHeader,
+    // eslint-disable-next-line vue/no-unused-components
+    CountBookAPI,
+  },
+  computed: {
+    showHeader() {
+      return this.$route.name !== 'CountBookAPI';
+    },
+  },
+};
+</script>
